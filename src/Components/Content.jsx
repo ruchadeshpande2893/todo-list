@@ -2,6 +2,7 @@ import Input from "./Input";
 import Button from "./Button";
 import ListItem from "./ListItem";
 import { useState, useRef } from "react";
+import "./Content.css";
 
 export default function Content() {
 
@@ -24,27 +25,31 @@ export default function Content() {
         })
     }
 
+    function clearAll() {
+        setList([])
+    }
+
+
     return (
         <div className="content">
-            <div className="input">
-                <Input type="text" placeholder="Add Todo" ref={inputValue}/>
-            </div>
-            <div className="button">
-                <Button type="submit" value="+" onClickHandler={handleClick}/>
+            <div className="input-button">
+                <Input className="input" type="text" placeholder="Add your task here" ref={inputValue}/>
+                <Button className="button" type="submit" value="+" onClickHandler={handleClick}/>
             </div>
             <div className="list">
-                <ul>
+                <ol>
                 {list.map((item, index) => {
                     return (
-                        <div>
+                        <div className="list-item">
                             <ListItem key={index} value={item}/>
-                            <Button onClickHandler={() => {
+                            <Button className="delete" onClickHandler={() => {
                                 deleteItem(index)
-                            }} value="X"/>
+                        }} value={<i class="material-icons">delete</i>}/>
                         </div>
                     )
                 })}
-                </ul>
+                </ol>
+                <Button className= "clear-all" type="button" value="Clear All" onClickHandler={clearAll}/>
             </div>
         </div>
     )
