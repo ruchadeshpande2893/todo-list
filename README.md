@@ -1,6 +1,6 @@
 # Todo List App
 
-A ToDo list app where you can add and remove your day-to-day tasks.
+A Todo list app where you can add and remove your day-to-day tasks.
 
 ### Tech Stack 
 - Language: JavaScript, HTML, CSS
